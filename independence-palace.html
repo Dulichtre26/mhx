@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independence Palace - Explore Vietnam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-blue-700 to-teal-500 text-white p-4 fixed w-full top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold tracking-tight">Independence Palace</h1>
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-200">Back to Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-300 transition-colors duration-200">About</a></li>
+                <li><a href="#gallery" class="hover:text-yellow-300 transition-colors duration-200">Gallery</a></li>
+                <li><a href="#contact" class="hover:text-yellow-300 transition-colors duration-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero h-96 flex items-center justify-center text-white" style="background-image: url('https://images.unsplash.com/photo-1590412200988-3a6a6f7b3c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+        <div class="text-center bg-black bg-opacity-60 p-8 rounded-xl">
+            <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">Independence Palace</h2>
+            <p class="text-lg drop-shadow">A historic landmark of Vietnam’s modern history</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">About Independence Palace</h2>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Independence Palace, also known as Reunification Palace, is a historic landmark in Ho Chi Minh City. Built in 1966, it served as the presidential palace of South Vietnam until 1975. The palace is famous for its role in the Vietnam War and its unique mid-century modern architecture. Visitors can explore its grand rooms, war command center, and historic artifacts.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://images.unsplash.com/photo-1590412200988-3a6a6f7b3c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Independence Palace" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Palace Interior" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
+                <img src="https://images.unsplash.com/photo-1621333150571-1f0a2b0c7f36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Palace Gardens" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Plan Your Visit</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6">
+                Ready to explore Independence Palace? Check the official website for tickets and tour information.
+            </p>
+            <div class="text-center">
+                <a href="https://www.vietnam.travel/" target="_blank" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200">Visit Official Site</a>
+            </div>
+            <!-- Google Maps Embed -->
+            <div class="mt-8">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.447628856346!2d106.693258314623!3d10.776917992319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3d7c7a0b3b%3A0x3f7b7e8f7a8f7b9b!2sIndependence%20Palace!5e0!3m2!1sen!2s!4v1698765432105!5m2!1sen!2s" width="100%" height="400" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Vietnam Tourism. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="index.html" class="text-gray-300 hover:text-yellow-300 mx-2">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-yellow-300 mx-2">About</a>
+                <a href="#gallery" class="text-gray-300 hover:text-yellow-300 mx-2">Gallery</a>
+                <a href="#contact" class="text-gray-300 hover:text-yellow-300 mx-2">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
