@@ -3,52 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben Thanh Market - Explore Vietnam</title>
+    <title>Ben Thanh Market</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+        .destination-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .gallery-img {
-            transition: transform 0.3s ease;
-        }
-        .gallery-img:hover {
-            transform: scale(1.05);
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
         html {
             scroll-behavior: smooth;
+        }
+        .nav-container {
+            background: linear-gradient(to right, #8b5cf6, #34d399);
+            padding: 1rem;
+        }
+        .nav-title {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #facc15;
+            text-decoration: underline;
+        }
+        .team-info {
+            color: #6b7280;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #f3f4f6;
+        }
+        .footer-logo {
+            height: 40px;
+            margin: 0 1rem;
+        }
+        .footer-text {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #34d399;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .lang-switch:hover {
+            background-color: #2dd4bf;
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-blue-700 to-teal-500 text-white p-4 fixed w-full top-0 z-10 shadow-lg">
+    <nav class="nav-container fixed w-full top-0 z-10 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-extrabold tracking-tight">Ben Thanh Market</h1>
+            <h1 class="nav-title">Ben Thanh Market</h1>
             <ul class="flex space-x-6 text-lg">
-                <li><a href="index.html" class="hover:text-yellow-300 transition-colors duration-200">Back to Home</a></li>
-                <li><a href="#about" class="hover:text-yellow-300 transition-colors duration-200">About</a></li>
-                <li><a href="#gallery" class="hover:text-yellow-300 transition-colors duration-200">Gallery</a></li>
-                <li><a href="#contact" class="hover:text-yellow-300 transition-colors duration-200">Contact</a></li>
+                <li><a href="index.html" class="nav-link" id="navHome">Back to Home</a></li>
+                <li><a href="#about" class="nav-link" id="navAbout">About</a></li>
+                <li><a href="#gallery" class="nav-link" id="navGallery">Gallery</a></li>
+                <li><a href="#contact" class="nav-link" id="navContact">Contact</a></li>
+                <li>
+                    <select id="langSwitch" class="lang-switch">
+                        <option value="en">English</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Team Info Section -->
+    <div class="team-info" id="teamInfo">
+        <p>A project by Du Lịch Trẻ Team - Mùa Hè Xanh 2025, Open University HCMC. Showcasing the beauty of Saigon and guiding tourists with passion!</p>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero h-96 flex items-center justify-center text-white" style="background-image: url('https://images.unsplash.com/photo-1621333150571-1f0a2b0c7f36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
-        <div class="text-center bg-black bg-opacity-60 p-8 rounded-xl">
-            <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">Ben Thanh Market</h2>
-            <p class="text-lg drop-shadow">A vibrant hub of culture and commerce in Ho Chi Minh City</p>
+    <section id="about" class="h-screen flex items-center justify-center text-white bg-cover bg-center" 
+        style="background-image: url('https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/21/dsc07019-16715442719121152116959-1671614669388-16716146694682002413813.jpg'); background-attachment: fixed;">
+        <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg">
+            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">Ben Thanh Market</h2>
+            <p class="text-xl drop-shadow" id="heroSubtitle">A vibrant hub of culture and commerce in Ho Chi Minh City</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">About Ben Thanh Market</h2>
-            <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="aboutTitle">About Ben Thanh Market</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto" id="aboutText">
                 Ben Thanh Market, located in the heart of Ho Chi Minh City, is one of Vietnam's most iconic markets. Established in 1912, it offers a vibrant mix of local handicrafts, textiles, souvenirs, and street food. Visitors can explore over 1,400 stalls, sample traditional Vietnamese phở, or shop for unique gifts. The market's distinctive clock tower is a beloved landmark.
             </p>
         </div>
@@ -57,47 +115,164 @@
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Gallery</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <img src="https://nld.mediacdn.vn/291774122806476800/2023/11/1/11-chot-11-16988435978592007046898.jpg" alt="Ben Thanh Market" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
-                <img src="https://tse1.mm.bing.net/th?id=OIP.V8xEjbq8akWZmRdO3pzddgHaFR&pid=Api&P=0&h=220" alt="Market Stalls" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
-                <img src="https://mytourcdn.com/upload_images/Image/Minh%20Hoang/Ho%20chi%20minh/Cho%20ben%20thanh/1.JPG" alt="Market Night" class="gallery-img w-full h-72 object-cover rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="galleryTitle">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1743844915361-13c93d59c965?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="Market Photo 1" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/market-photo-2.jpg" alt="Market Photo 2" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/market-photo-3.jpg" alt="Market Photo 3" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="mapTitle">Location Map</h2>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.589254112974!2d106.6981987!3d10.7711069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sBen+Thanh+Market!5e0!3m2!1sen!2sus!4v1698765432!&markers=color:red%7Clabel:D%7C10.7711069,106.6981987" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" id="mapFrame"></iframe>
+                <div id="mapFallback" class="text-center text-gray-600 mt-2 hidden">Map failed to load. Please check your internet connection or try again later.</div>
+                <a href="https://www.google.com/maps/place/32-34-36+Lý+Tự+Trọng,+Bến+Nghé,+Quận+1,+Hồ+Chí+Minh,+Vietnam" target="_blank" class="mt-2 inline-block text-teal-500 hover:text-teal-600 underline">View Full Map & Directions</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Plan Your Visit</h2>
-            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6">
-                Ready to explore Ben Thanh Market? Check the official tourism website for tips and tour options.
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" id="contactTitle">Plan Your Visit</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6" id="contactText">
+                Ready to explore Ben Thanh Market? Learn more about our team and get in touch!
             </p>
             <div class="text-center">
-                <a href="https://www.vietnam.travel/" target="_blank" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200">Visit Official Site</a>
-            </div>
-            <!-- Google Maps Embed -->
-            <div class="mt-8">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.630771223183!2d106.69629231462294!3d10.771677892320508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3d7c7a0b3b%3A0x3f7b7e8f7a8f7b9b!2sBen%20Thanh%20Market!5e0!3m2!1sen!2s!4v1698765432105!5m2!1sen!2s" width="100%" height="400" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+                <a href="about-us.html" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200 mb-4">Learn More About Us</a>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://facebook.com/dulichtre" target="_blank" class="text-blue-600 hover:text-blue-800">Facebook</a>
+                    <a href="https://zalo.me/dulichtre" target="_blank" class="text-green-600 hover:text-green-800">Zalo</a>
+                    <a href="https://tiktok.com/@dulichtre" target="_blank" class="text-black hover:text-gray-800">TikTok</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>© 2025 Vietnam Tourism. All rights reserved.</p>
-            <div class="mt-4">
-                <a href="index.html" class="text-gray-300 hover:text-yellow-300 mx-2">Home</a>
-                <a href="#about" class="text-gray-300 hover:text-yellow-300 mx-2">About</a>
-                <a href="#gallery" class="text-gray-300 hover:text-yellow-300 mx-2">Gallery</a>
-                <a href="#contact" class="text-gray-300 hover:text-yellow-300 mx-2">Contact</a>
+            <div class="flex justify-center space-x-6 mb-4">
+                <img src="https://media.loveitopcdn.com/3807/logo-hoi-sinh-vien-dongphucsongphu.jpg" alt="Hội Sinh viên Việt Nam Logo" class="footer-logo">
+                <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-mo-tphcm-inkythuatso-01-23-15-09-49.jpg" alt="Open University HCMC Logo" class="footer-logo">
+            </div>
+            <p class="footer-text mt-2" id="footerText">A project by Young Travel Team - Green Summer 2025</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="index.html" class="footer-text hover:text-yellow-300">Home</a>
+                <a href="#about" class="footer-text hover:text-yellow-300">About</a>
+                <a href="#gallery" class="footer-text hover:text-yellow-300">Gallery</a>
+                <a href="#contact" class="footer-text hover:text-yellow-300">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for smooth scrolling -->
+    <!-- JavaScript for smooth scrolling, language switch, and map fallback -->
     <script>
+        // Language data
+        const translations = {
+            en: {
+                navTitle: "Ben Thanh Market",
+                navHome: "Back to Home",
+                navAbout: "About",
+                navGallery: "Gallery",
+                navContact: "Contact",
+                teamInfo: "A project by Du Lịch Trẻ Team - Mùa Hè Xanh 2025, Open University HCMC. Showcasing the beauty of Saigon and guiding tourists with passion!",
+                heroTitle: "Ben Thanh Market",
+                heroSubtitle: "A vibrant hub of culture and commerce in Ho Chi Minh City",
+                aboutTitle: "About Ben Thanh Market",
+                aboutText: "Ben Thanh Market, located in the heart of Ho Chi Minh City, is one of Vietnam's most iconic markets. Established in 1912, it offers a vibrant mix of local handicrafts, textiles, souvenirs, and street food. Visitors can explore over 1,400 stalls, sample traditional Vietnamese phở, or shop for unique gifts. The market's distinctive clock tower is a beloved landmark.",
+                galleryTitle: "Gallery",
+                mapTitle: "Location Map",
+                contactTitle: "Plan Your Visit",
+                contactText: "Ready to explore Ben Thanh Market? Learn more about our team and get in touch!",
+                footerText: "A project by Young Travel Team - Green Summer 2025"
+            },
+            vi: {
+                navTitle: "Chợ Bến Thành",
+                navHome: "Quay Về Trang Chủ",
+                navAbout: "Về Chợ Bến Thành",
+                navGallery: "Thư Viện Hình Ảnh",
+                navContact: "Liên Hệ",
+                teamInfo: "Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025, Đại học Mở TP.HCM. Giới thiệu vẻ đẹp Sài Gòn và hướng dẫn du khách với đam mê!",
+                heroTitle: "Chợ Bến Thành",
+                heroSubtitle: "Một trung tâm sôi động về văn hóa và thương mại tại Thành phố Hồ Chí Minh",
+                aboutTitle: "Về Chợ Bến Thành",
+                aboutText: "Chợ Bến Thành, nằm ở trung tâm Thành phố Hồ Chí Minh, là một trong những khu chợ nổi tiếng nhất Việt Nam. Được thành lập vào năm 1912, nơi đây mang đến một sự pha trộn sôi động giữa đồ thủ công địa phương, dệt may, đồ lưu niệm và ẩm thực đường phố. Du khách có thể khám phá hơn 1.400 gian hàng, thưởng thức phở Việt Nam truyền thống hoặc mua sắm những món quà độc đáo. Tháp đồng hồ đặc trưng của chợ là một địa danh được yêu thích.",
+                galleryTitle: "Thư Viện Hình Ảnh",
+                mapTitle: "Bản Đồ Vị Trí",
+                contactTitle: "Lên Kế Hoạch Thăm Quan",
+                contactText: "Sẵn sàng khám phá Chợ Bến Thành? Tìm hiểu thêm về đội ngũ của chúng tôi và liên hệ!",
+                footerText: "Dự án bởi Đội Young Travel - Mùa Hè Xanh 2025"
+            },
+            zh: {
+                navTitle: "槟城市场",
+                navHome: "返回首页",
+                navAbout: "关于槟城市场",
+                navGallery: "图片库",
+                navContact: "联系",
+                teamInfo: "由Du Lịch Trẻ团队 - 2025年绿色暑期，胡志明市开放大学项目。展示西贡之美并热情指导游客！",
+                heroTitle: "槟城市场",
+                heroSubtitle: "胡志明市文化和商业的活力中心",
+                aboutTitle: "关于槟城市场",
+                aboutText: "槟城市场位于胡志明市中心，是越南最具标志性的市场之一。始建于1912年，它提供当地手工艺品、纺织品、纪念品和街头美食的生动组合。游客可以探索超过1,400个摊位，品尝传统越南河粉，或购买独特的礼物。市场标志性的钟楼是一个深受喜爱的地标。",
+                galleryTitle: "画廊",
+                mapTitle: "位置地图",
+                contactTitle: "计划您的访问",
+                contactText: "准备好探索槟城市场了吗？了解更多关于我们团队的信息并联系我们！",
+                footerText: "由Young Travel团队 - 2025年绿色暑期项目"
+            }
+        };
+
+        // Initialize language
+        let currentLang = localStorage.getItem('language') || 'en';
+
+        // Update content based on language
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+
+            document.querySelector('.nav-title').textContent = translations[lang].navTitle;
+            document.getElementById('navHome').textContent = translations[lang].navHome;
+            document.getElementById('navAbout').textContent = translations[lang].navAbout;
+            document.getElementById('navGallery').textContent = translations[lang].navGallery;
+            document.getElementById('navContact').textContent = translations[lang].navContact;
+            document.getElementById('teamInfo').textContent = translations[lang].teamInfo;
+            document.getElementById('heroTitle').textContent = translations[lang].heroTitle;
+            document.getElementById('heroSubtitle').textContent = translations[lang].heroSubtitle;
+            document.getElementById('aboutTitle').textContent = translations[lang].aboutTitle;
+            document.getElementById('aboutText').textContent = translations[lang].aboutText;
+            document.getElementById('galleryTitle').textContent = translations[lang].galleryTitle;
+            document.getElementById('mapTitle').textContent = translations[lang].mapTitle;
+            document.getElementById('contactTitle').textContent = translations[lang].contactTitle;
+            document.getElementById('contactText').textContent = translations[lang].contactText;
+            document.getElementById('footerText').textContent = translations[lang].footerText;
+
+            const langSwitch = document.getElementById('langSwitch');
+            langSwitch.value = lang;
+        }
+
+        // Event listener for language switch
+        document.getElementById('langSwitch').addEventListener('change', function() {
+            updateLanguage(this.value);
+        });
+
+        // Load language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage(currentLang);
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -106,6 +281,37 @@
                 });
             });
         });
+
+        // Check if map loads, show fallback if it fails
+        window.addEventListener('load', function() {
+            const mapFrame = document.getElementById('mapFrame');
+            const mapFallback = document.getElementById('mapFallback');
+            if (mapFrame && mapFrame.contentDocument && mapFrame.contentDocument.body.innerHTML.includes('Google')) {
+                // Map loaded successfully
+            } else {
+                mapFallback.classList.remove('hidden');
+            }
+        });
+
+        // Add user's current location if permitted
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        const mapFrame = document.getElementById('mapFrame');
+                        if (mapFrame) {
+                            mapFrame.src += '&markers=color:blue%7Clabel:Y%7C' + userLat + ',' + userLng;
+                        }
+                    },
+                    () => {
+                        console.log('Geolocation permission denied or unavailable.');
+                    }
+                );
+            }
+        }
+        window.onload = initMap;
     </script>
 </body>
 </html>
