@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Vietnam with Du Lịch Trẻ</title>
+    <title>Khám Phá Việt Nam với Du Lịch Trẻ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .destination-card {
@@ -24,7 +24,7 @@
             font-family: 'Arial', sans-serif;
             font-weight: bold;
             color: #ffffff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(223, 15, 15, 0.5);
             font-size: 1.5rem;
         }
         .nav-title span {
@@ -42,15 +42,27 @@
             text-decoration: underline;
         }
         .team-info {
-            color: #6b7280;
+            color: #a07f5d;
             font-size: 0.9rem;
             text-align: center;
             padding: 1rem 0;
             background-color: #f3f4f6;
         }
+        .footer-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem; /* Khoảng cách giữa hai logo */
+            padding: 0.5rem;
+            background-color: #d8cfcf; /* Khung trắng */
+            border-radius: 0.75rem; /* Bo tròn 4 góc */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để nổi bật */
+        }
         .footer-logo {
             height: 40px;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
+            object-fit: contain; /* Đảm bảo logo không bị méo */
+            border-radius: 0.25rem; /* Bo tròn nhẹ cho từng logo (tùy chọn) */
         }
         .footer-text {
             color: #d1d5db;
@@ -68,17 +80,50 @@
         .lang-switch:hover {
             background-color: #2dd4bf;
         }
+        .ward-item {
+            cursor: pointer;
+            padding: 1rem;
+            background-color: #f3f4f6;
+            margin-bottom: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+        .ward-item:hover {
+            background-color: #e5e7eb;
+        }
+        .location-list {
+            display: none;
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        .location-item {
+            padding: 0.5rem 0;
+            color: #2563eb;
+            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .location-item:hover {
+            color: #1d4ed8;
+        }
+        .location-thumbnail {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation -->
     <nav class="nav-container fixed w-full top-0 z-10 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="nav-title">Explore Vietnam with <span>Young Travel</span></h1>
+            <h1 class="nav-title">Khám Phá Việt Nam với <span>Du Lịch Trẻ</span></h1>
             <ul class="flex space-x-6 text-lg">
-                <li><a href="#home" class="nav-link" id="navHome">Home</a></li>
-                <li><a href="#destinations" class="nav-link" id="navDestinations">Destinations</a></li>
-                <li><a href="#contact" class="nav-link" id="navContact">Contact</a></li>
+                <li><a href="#home" class="nav-link" id="navHome">Trang Chủ</a></li>
+                <li><a href="#destinations" class="nav-link" id="navDestinations">Điểm Đến</a></li>
+                <li><a href="#contact" class="nav-link" id="navContact">Liên Hệ</a></li>
                 <li>
                     <select id="langSwitch" class="lang-switch">
                         <option value="en">English</option>
@@ -92,40 +137,92 @@
 
     <!-- Team Info Section -->
     <div class="team-info" id="teamInfo">
-        <p>A project by Du Lịch Trẻ Team - Mùa Hè Xanh 2025, Open University HCMC. Showcasing the beauty of Saigon and guiding tourists with passion!</p>
+        <p>Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025, Đại học Mở TP.HCM. Giới thiệu vẻ đẹp Sài Gòn và hướng dẫn du khách với đam mê!</p>
     </div>
 
     <!-- Hero Section -->
     <section id="home" class="h-screen flex items-center justify-center text-white bg-cover bg-center" 
         style="background-image: url('https://images.unsplash.com/photo-1670202602868-de21907aba88?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-attachment: fixed;">
         <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg">
-            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">Discover Vietnam's Beauty</h2>
-            <p class="text-xl drop-shadow" id="heroSubtitle">Explore iconic destinations in Ho Chi Minh City</p>
-            <a href="#destinations" class="mt-6 inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200">View Destinations</a>
+            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">Khám Phá Vẻ Đẹp Việt Nam</h2>
+            <p class="text-xl drop-shadow" id="heroSubtitle">Tìm hiểu các điểm đến nổi tiếng tại Thành phố Hồ Chí Minh</p>
+            <a href="#destinations" class="mt-6 inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200">Xem Điểm Đến</a>
         </div>
     </section>
 
     <!-- Destinations Section -->
     <section id="destinations" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="destinationsTitle">Top Destinations</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Destination 1: Ben Thanh Market -->
-                <a href="ben-thanh-market.html" class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/21/dsc07019-16715442719121152116959-1671614669388-16716146694682002413813.jpg" alt="Ben Thanh Market" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800" id="benThanhName">Ben Thanh Market</h3>
-                        <p class="text-gray-600 mt-2" id="benThanhDesc">A vibrant market offering local crafts, food, and culture in the heart of Ho Chi Minh City.</p>
-                    </div>
-                </a>
-                <!-- Destination 2: Independence Palace -->
-                <a href="independence-palace.html" class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="https://iwater.vn/Image/Picture/New/Dinh%20%C4%90%E1%BB%99c%20L%E1%BA%ADp.JPG" alt="Independence Palace" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800" id="independenceName">Independence Palace</h3>
-                        <p class="text-gray-600 mt-2" id="independenceDesc">A historic landmark with stunning architecture and rich history.</p>
-                    </div>
-                </a>
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="destinationsTitle">Khám Phá Điểm Đến Theo Phường</h2>
+            <div class="space-y-4" id="wardList">
+                <!-- Phường Sài Gòn -->
+                <div class="ward-item" onclick="toggleLocations('saigonWard')">
+                    <span id="saigonWardName">Phường Sài Gòn</span>
+                </div>
+                <div id="saigonWard" class="location-list">
+                    <a href="ben-thanh-market.html" class="location-item" id="benThanhLink">
+                        <img src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/21/dsc07019-16715442719121152116959-1671614669388-16716146694682002413813.jpg" alt="Chợ Bến Thành" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Ben+Thanh'; console.log('Image load failed for Ben Thanh');">
+                        Chợ Bến Thành
+                    </a>
+                    <a href="bach-dang-wharf.html" class="location-item" id="bachDangLink">
+                        <img src="https://images.unsplash.com/photo-1600585154295-0a4e83e31faf?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Bến Bạch Đằng" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Bach+Dang'; console.log('Image load failed for Bach Dang');">
+                        Bến Bạch Đằng
+                    </a>
+                    <a href="nguyen-hue-walking-street.html" class="location-item" id="nguyenHueLink">
+                        <img src="https://images.unsplash.com/photo-1600585154295-0a4e83e31faf?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Phố đi bộ Nguyễn Huệ" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Nguyen+Hue'; console.log('Image load failed for Nguyen Hue');">
+                        Phố đi bộ Nguyễn Huệ
+                    </a>
+                    <a href="notre-dame-basilica.html" class="location-item" id="notreDameLink">
+                        <img src="https://images.unsplash.com/photo-1600585154295-0a4e83e31faf?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Nhà thờ Đức Bà" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Notre+Dame'; console.log('Image load failed for Notre Dame');">
+                        Nhà thờ Đức Bà
+                    </a>
+                    <a href="independence-palace.html" class="location-item" id="independenceLink">
+                        <img src="https://images.unsplash.com/photo-1600585154295-0a4e83e31faf?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Dinh Độc Lập" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Independence'; console.log('Image load failed for Independence');">
+                        Dinh Độc Lập
+                    </a>
+                </div>
+
+                <!-- Phường Xuân Hòa -->
+                <div class="ward-item" onclick="toggleLocations('xuanHoaWard')">
+                    <span id="xuanHoaWardName">Phường Xuân Hòa</span>
+                </div>
+                <div id="xuanHoaWard" class="location-list">
+                    <a href="tao-dan-park.html" class="location-item" id="taoDanLink">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990d71a2f8e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Công viên Tao Đàn" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Tao+Dan'; console.log('Image load failed for Tao Dan');">
+                        Công viên Tao Đàn
+                    </a>
+                    <a href="war-remnants-museum.html" class="location-item" id="warRemnantsLink">
+                        <img src="https://images.unsplash.com/photo-1600585154302-7e1e9b0f5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Bảo tàng Chứng tích Chiến tranh" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=War+Museum'; console.log('Image load failed for War Museum');">
+                        Bảo tàng Chứng tích Chiến tranh
+                    </a>
+                    <a href="southern-womens-museum.html" class="location-item" id="southernWomensLink">
+                        <img src="https://images.unsplash.com/photo-1600585154302-7e1e9b0f5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Bảo tàng Phụ nữ Nam Bộ" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Southern+Womens'; console.log('Image load failed for Southern Womens');">
+                        Bảo tàng Phụ nữ Nam Bộ
+                    </a>
+                </div>
+
+                <!-- Phường Bàn Cờ -->
+                <div class="ward-item" onclick="toggleLocations('banCoWard')">
+                    <span id="banCoWardName">Phường Bàn Cờ</span>
+                </div>
+                <div id="banCoWard" class="location-list">
+                    <a href="le-van-tam-park.html" class="location-item" id="leVanTamLink">
+                        <img src="https://images.unsplash.com/photo-1600585154302-7e1e9b0f5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Công viên Lê Văn Tám" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Le+Van+Tam'; console.log('Image load failed for Le Van Tam');">
+                        Công viên Lê Văn Tám
+                    </a>
+                    <a href="turtle-lake.html" class="location-item" id="turtleLakeLink">
+                        <img src="https://images.unsplash.com/photo-1600585154302-7e1e9b0f5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Hồ Con Rùa" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Turtle+Lake'; console.log('Image load failed for Turtle Lake');">
+                        Hồ Con Rùa
+                    </a>
+                    <a href="cho-lon-chinatown.html" class="location-item" id="choLonLink">
+                        <img src="images/cholonindex.jpg" alt="Chợ Lớn - Phố Tàu" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Cholon'; console.log('Image load failed for Cholon');">
+                        Chợ Lớn - Phố Tàu
+                    </a>
+                    <a href="binh-tay-market.html" class="location-item" id="binhTayLink">
+                        <img src="https://images.unsplash.com/photo-1600585154302-7e1e9b0f5e43?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&q=80" alt="Chợ Bình Tây" class="location-thumbnail" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=Binh+Tay'; console.log('Image load failed for Binh Tay');">
+                        Chợ Bình Tây
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -133,12 +230,12 @@
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" id="contactTitle">Get in Touch</h2>
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" id="contactTitle">Liên Hệ Với Chúng Tôi</h2>
             <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6" id="contactText">
-                Plan your trip to Ho Chi Minh City! Contact us or learn more about our team for more details.
+                Lên kế hoạch cho chuyến đi đến Thành phố Hồ Chí Minh! Liên hệ chúng tôi hoặc tìm hiểu thêm về đội ngũ của chúng tôi để biết chi tiết.
             </p>
             <div class="text-center">
-                <a href="about-us.html" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200 mb-4">Learn More About Us</a>
+                <a href="about-us.html" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200 mb-4">Tìm Hiểu Thêm Về Chúng Tôi</a>
                 <div class="flex justify-center space-x-4">
                     <a href="https://facebook.com/dulichtre" target="_blank" class="text-blue-600 hover:text-blue-800">Facebook</a>
                     <a href="https://zalo.me/dulichtre" target="_blank" class="text-green-600 hover:text-green-800">Zalo</a>
@@ -149,22 +246,22 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-700 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <img src="https://media.loveitopcdn.com/3807/logo-hoi-sinh-vien-dongphucsongphu.jpg" alt="Hội Sinh viên Việt Nam Logo" class="footer-logo">
-                <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-mo-tphcm-inkythuatso-01-23-15-09-49.jpg" alt="Open University HCMC Logo" class="footer-logo">
+            <div class="footer-logo-container mb-4">
+                <img src="images/Logo/DAYLOGOMHX25 (1).png" alt="35 năm ngày thành lập trường Đại học Mở Thành phố Hồ Chí Minh" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=Logo+Not+Found';">
+                <img src="images/Logo/logxoanen.png" alt="Logo mới của Du Lịch Trẻ" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=New+Logo';">
             </div>
-            <p class="footer-text mt-2" id="footerText">A project by Young Travel Team - Green Summer 2025</p>
+            <p class="footer-text mt-2" id="footerText">Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025</p>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="#home" class="footer-text hover:text-yellow-300">Home</a>
-                <a href="#destinations" class="footer-text hover:text-yellow-300">Destinations</a>
-                <a href="#contact" class="footer-text hover:text-yellow-300">Contact</a>
+                <a href="#home" class="footer-text hover:text-yellow-300">Trang Chủ</a>
+                <a href="#destinations" class="footer-text hover:text-yellow-300">Điểm Đến</a>
+                <a href="#contact" class="footer-text hover:text-yellow-300">Liên Hệ</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for smooth scrolling and language switch -->
+    <!-- JavaScript for smooth scrolling, language switch, and ward toggle -->
     <script>
         // Language data
         const translations = {
@@ -176,11 +273,22 @@
                 teamInfo: "A project by Du Lịch Trẻ Team - Mùa Hè Xanh 2025, Open University HCMC. Showcasing the beauty of Saigon and guiding tourists with passion!",
                 heroTitle: "Discover Vietnam's Beauty",
                 heroSubtitle: "Explore iconic destinations in Ho Chi Minh City",
-                destinationsTitle: "Top Destinations",
-                benThanhName: "Ben Thanh Market",
-                benThanhDesc: "A vibrant market offering local crafts, food, and culture in the heart of Ho Chi Minh City.",
-                independenceName: "Independence Palace",
-                independenceDesc: "A historic landmark with stunning architecture and rich history.",
+                destinationsTitle: "Explore Destinations by Ward",
+                saigonWardName: "Sai Gon Ward",
+                benThanhLink: "Ben Thanh Market",
+                bachDangLink: "Bach Dang Wharf",
+                nguyenHueLink: "Nguyen Hue Walking Street",
+                notreDameLink: "Notre-Dame Basilica",
+                independenceLink: "Independence Palace",
+                xuanHoaWardName: "Xuan Hoa Ward",
+                taoDanLink: "Tao Dan Park",
+                warRemnantsLink: "War Remnants Museum",
+                southernWomensLink: "Southern Women’s Museum",
+                banCoWardName: "Ban Co Ward",
+                leVanTamLink: "Le Van Tam Park",
+                turtleLakeLink: "Turtle Lake",
+                choLonLink: "Cholon - Chinatown",
+                binhTayLink: "Binh Tay Market",
                 contactTitle: "Get in Touch",
                 contactText: "Plan your trip to Ho Chi Minh City! Contact us or learn more about our team for more details.",
                 footerText: "A project by Young Travel Team - Green Summer 2025"
@@ -193,14 +301,25 @@
                 teamInfo: "Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025, Đại học Mở TP.HCM. Giới thiệu vẻ đẹp Sài Gòn và hướng dẫn du khách với đam mê!",
                 heroTitle: "Khám Phá Vẻ Đẹp Việt Nam",
                 heroSubtitle: "Tìm hiểu các điểm đến nổi tiếng tại Thành phố Hồ Chí Minh",
-                destinationsTitle: "Các Điểm Đến Hàng Đầu",
-                benThanhName: "Chợ Bến Thành",
-                benThanhDesc: "Một khu chợ sôi động cung cấp đồ thủ công địa phương, ẩm thực và văn hóa tại trung tâm Thành phố Hồ Chí Minh.",
-                independenceName: "Dinh Độc Lập",
-                independenceDesc: "Một địa danh lịch sử với kiến trúc tuyệt đẹp và bề dày lịch sử.",
+                destinationsTitle: "Khám Phá Điểm Đến Theo Phường",
+                saigonWardName: "Phường Sài Gòn",
+                benThanhLink: "Chợ Bến Thành",
+                bachDangLink: "Bến Bạch Đằng",
+                nguyenHueLink: "Phố đi bộ Nguyễn Huệ",
+                notreDameLink: "Nhà thờ Đức Bà",
+                independenceLink: "Dinh Độc Lập",
+                xuanHoaWardName: "Phường Xuân Hòa",
+                taoDanLink: "Công viên Tao Đàn",
+                warRemnantsLink: "Bảo tàng Chứng tích Chiến tranh",
+                southernWomensLink: "Bảo tàng Phụ nữ Nam Bộ",
+                banCoWardName: "Phường Bàn Cờ",
+                leVanTamLink: "Công viên Lê Văn Tám",
+                turtleLakeLink: "Hồ Con Rùa",
+                choLonLink: "Chợ Lớn - Phố Tàu",
+                binhTayLink: "Chợ Bình Tây",
                 contactTitle: "Liên Hệ Với Chúng Tôi",
                 contactText: "Lên kế hoạch cho chuyến đi đến Thành phố Hồ Chí Minh! Liên hệ chúng tôi hoặc tìm hiểu thêm về đội ngũ của chúng tôi để biết chi tiết.",
-                footerText: "Dự án bởi Đội Young Travel - Mùa Hè Xanh 2025"
+                footerText: "Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025"
             },
             zh: {
                 navTitle: "与Du Lịch Trẻ探索越南",
@@ -210,11 +329,22 @@
                 teamInfo: "由Du Lịch Trẻ团队 - 2025年绿色暑期，胡志明市开放大学项目。展示西贡之美并热情指导游客！",
                 heroTitle: "发现越南之美",
                 heroSubtitle: "探索胡志明市标志性目的地",
-                destinationsTitle: "顶级目的地",
-                benThanhName: "槟城市场",
-                benThanhDesc: "一个充满活力的市场，提供当地工艺品、美食和文化，位于胡志明市中心。",
-                independenceName: "独立宫",
-                independenceDesc: "一座具有惊艳建筑和丰富历史的标志性历史建筑。",
+                destinationsTitle: "按区探索目的地",
+                saigonWardName: "西贡坊",
+                benThanhLink: "槟城市场",
+                bachDangLink: "白藤码头",
+                nguyenHueLink: "阮惠步行街",
+                notreDameLink: "圣母大教堂",
+                independenceLink: "独立宫",
+                xuanHoaWardName: "春和坊",
+                taoDanLink: "桃丹公园",
+                warRemnantsLink: "战争遗迹博物馆",
+                southernWomensLink: "南部妇女博物馆",
+                banCoWardName: "班戈坊",
+                leVanTamLink: "黎文八公园",
+                turtleLakeLink: "乌龟湖",
+                choLonLink: "堤岸 - 唐人街",
+                binhTayLink: "平泰市场",
                 contactTitle: "联系我们",
                 contactText: "计划您的胡志明市之旅！联系我们或了解更多关于我们团队的细节。",
                 footerText: "由Young Travel团队 - 2025年绿色暑期项目"
@@ -222,14 +352,14 @@
         };
 
         // Initialize language
-        let currentLang = localStorage.getItem('language') || 'en';
+        let currentLang = localStorage.getItem('language') || 'vi';
 
         // Update content based on language
         function updateLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('language', lang);
 
-            document.querySelector('.nav-title').textContent = translations[lang].navTitle;
+            document.querySelector('.nav-title').innerHTML = translations[lang].navTitle;
             document.getElementById('navHome').textContent = translations[lang].navHome;
             document.getElementById('navDestinations').textContent = translations[lang].navDestinations;
             document.getElementById('navContact').textContent = translations[lang].navContact;
@@ -237,10 +367,21 @@
             document.getElementById('heroTitle').textContent = translations[lang].heroTitle;
             document.getElementById('heroSubtitle').textContent = translations[lang].heroSubtitle;
             document.getElementById('destinationsTitle').textContent = translations[lang].destinationsTitle;
-            document.getElementById('benThanhName').textContent = translations[lang].benThanhName;
-            document.getElementById('benThanhDesc').textContent = translations[lang].benThanhDesc;
-            document.getElementById('independenceName').textContent = translations[lang].independenceName;
-            document.getElementById('independenceDesc').textContent = translations[lang].independenceDesc;
+            document.getElementById('saigonWardName').textContent = translations[lang].saigonWardName;
+            document.getElementById('benThanhLink').textContent = translations[lang].benThanhLink;
+            document.getElementById('bachDangLink').textContent = translations[lang].bachDangLink;
+            document.getElementById('nguyenHueLink').textContent = translations[lang].nguyenHueLink;
+            document.getElementById('notreDameLink').textContent = translations[lang].notreDameLink;
+            document.getElementById('independenceLink').textContent = translations[lang].independenceLink;
+            document.getElementById('xuanHoaWardName').textContent = translations[lang].xuanHoaWardName;
+            document.getElementById('taoDanLink').textContent = translations[lang].taoDanLink;
+            document.getElementById('warRemnantsLink').textContent = translations[lang].warRemnantsLink;
+            document.getElementById('southernWomensLink').textContent = translations[lang].southernWomensLink;
+            document.getElementById('banCoWardName').textContent = translations[lang].banCoWardName;
+            document.getElementById('leVanTamLink').textContent = translations[lang].leVanTamLink;
+            document.getElementById('turtleLakeLink').textContent = translations[lang].turtleLakeLink;
+            document.getElementById('choLonLink').textContent = translations[lang].choLonLink;
+            document.getElementById('binhTayLink').textContent = translations[lang].binhTayLink;
             document.getElementById('contactTitle').textContent = translations[lang].contactTitle;
             document.getElementById('contactText').textContent = translations[lang].contactText;
             document.getElementById('footerText').textContent = translations[lang].footerText;
@@ -268,6 +409,16 @@
                 });
             });
         });
+
+        // Toggle locations
+        function toggleLocations(wardId) {
+            const locationList = document.getElementById(wardId);
+            if (locationList.style.display === 'block') {
+                locationList.style.display = 'none';
+            } else {
+                locationList.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>

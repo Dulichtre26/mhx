@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bến Bạch Đằng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .destination-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .nav-container {
+            background: linear-gradient(to right, #8b5cf6, #34d399);
+            padding: 1rem;
+        }
+        .nav-title {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            transition: color 0.3s ease;
+        }
+           .footer-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem; /* Khoảng cách giữa hai logo */
+            padding: 0.5rem;
+            background-color: #d8cfcf; /* Khung trắng */
+            border-radius: 0.75rem; /* Bo tròn 4 góc */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để nổi bật */
+        }
+        .nav-link:hover {
+            color: #facc15;
+            text-decoration: underline;
+        }
+        .team-info {
+            color: #6b7280;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #f3f4f6;
+        }
+        .footer-logo {
+            height: 40px;
+            margin: 0 1rem;
+        }
+        .footer-text {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #34d399;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .lang-switch:hover {
+            background-color: #2dd4bf;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="nav-container fixed w-full top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="nav-title">Bến Bạch Đằng</h1>
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="index.html" class="nav-link" id="navHome">Quay Về Trang Chủ</a></li>
+                <li><a href="#about" class="nav-link" id="navAbout">Về Bến Bạch Đằng</a></li>
+                <li><a href="#gallery" class="nav-link" id="navGallery">Thư Viện Hình Ảnh</a></li>
+                <li><a href="#contact" class="nav-link" id="navContact">Liên Hệ</a></li>
+                <li>
+                    <select id="langSwitch" class="lang-switch">
+                        <option value="en">English</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Team Info Section -->
+    <div class="team-info" id="teamInfo">
+        <p>Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025, Đại học Mở TP.HCM. Giới thiệu vẻ đẹp Sài Gòn và hướng dẫn du khách với đam mê!</p>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="about" class="h-screen flex items-center justify-center text-white bg-cover bg-center" 
+        style="background-image: url('images/BenBachDang/2.jpg'); background-attachment: fixed;">
+        <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg">
+            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">Bến Bạch Đằng</h2>
+            <p class="text-xl drop-shadow" id="heroSubtitle">Một góc Sài Gòn bình yên bên dòng sông thơ mộng</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="aboutTitle">Về Bến Bạch Đằng</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto" id="aboutText">
+                Bến Bạch Đằng – một góc Sài Gòn bình yên bên dòng sông thơ mộng, nơi quá khứ và hiện tại giao hòa trong từng hơi thở. Từng là bến cảng nhộn nhịp từ thời Pháp thuộc, nơi đây giờ khoác lên vẻ đẹp hiện đại với công viên xanh mát, lối đi bộ thoáng đãng, du thuyền ngắm hoàng hôn và những quán cà phê view sông đầy thi vị. Gần kề phố đi bộ Nguyễn Huệ, tượng Trần Hưng Đạo và khách sạn Majestic, Bến Bạch Đằng không chỉ là điểm hẹn thư giãn mà còn là ký ức sống động của một Sài Gòn từng rực rỡ giao thương và mang trong mình hào khí Bạch Đằng lịch sử. Đến đây lúc chiều muộn hay khi thành phố lên đèn, bạn sẽ thấy lòng mình dịu lại, yêu hơn một Sài Gòn rất đỗi thân thương.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="galleryTitle">Thư Viện Hình Ảnh</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/BenBachDang/1.jpg" alt="Bến Bạch Đằng Ảnh 1" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/BenBachDang/2.jpg" alt="Bến Bạch Đằng Ảnh 2" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/BenBachDang/3.jpg" alt="Bến Bạch Đằng Ảnh 3" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="mapTitle">Bản Đồ Vị Trí</h2>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.589254112974!2d106.7044987!3d10.7751069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sBach+Dang+Wharf!5e0!3m2!1svi!2svi!4v1698765432!&markers=color:red%7Clabel:D%7C10.7751069,106.7044987" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" id="mapFrame"></iframe>
+                <div id="mapFallback" class="text-center text-gray-600 mt-2 hidden">Bản đồ không tải được. Vui lòng kiểm tra kết nối internet hoặc thử lại sau.</div>
+                <a href="https://www.google.com/maps/place/T%C3%B4n+%C4%90%E1%BB%A9c+Th%E1%BA%AFng,+B%E1%BA%BFn+Ngh%C3%A9,+Qu%E1%BA%ADn+1,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam" target="_blank" class="mt-2 inline-block text-teal-500 hover:text-teal-600 underline">Xem Bản Đồ Toàn Màn Hình & Hướng Dẫn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" id="contactTitle">Lên Kế Hoạch Thăm Quan</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6" id="contactText">
+                Sẵn sàng khám phá Bến Bạch Đằng? Tìm hiểu thêm về đội ngũ của chúng tôi và liên hệ!
+            </p>
+            <div class="text-center">
+                <a href="about-us.html" class="inline-block bg-teal-500 text-white py-3 px-6 rounded-full hover:bg-teal-600 transition-colors duration-200 mb-4">Tìm Hiểu Thêm Về Chúng Tôi</a>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://www.facebook.com/share/16Wu2hk4v2/" target="_blank" class="text-blue-600 hover:text-blue-800">Facebook</a>
+                    <a href="https://zalo.me/dulichtre" target="_blank" class="text-green-600 hover:text-green-800">Zalo</a>
+                    <a href="https://www.tiktok.com/@dlt.hehehe.2025?_t=ZS-8yFV1X9FrV4&_r=1" target="_blank" class="text-black hover:text-gray-800">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-700 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="footer-logo-container mb-4">
+                <img src="images/Logo/DAYLOGOMHX25 (1).png" alt="35 năm ngày thành lập trường Đại học Mở Thành phố Hồ Chí Minh" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=Logo+Not+Found';">
+                <img src="images/Logo/logxoanen.png" alt="Logo mới của Du Lịch Trẻ" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=New+Logo';">
+            </div>
+            <p class="footer-text mt-2" id="footerText">Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#home" class="footer-text hover:text-yellow-300">Trang Chủ</a>
+                <a href="#destinations" class="footer-text hover:text-yellow-300">Điểm Đến</a>
+                <a href="#contact" class="footer-text hover:text-yellow-300">Liên Hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling, language switch, and map fallback -->
+    <script>
+        // Language data
+        const translations = {
+            en: {
+                navTitle: "Bach Dang Wharf",
+                navHome: "Back to Home",
+                navAbout: "About",
+                navGallery: "Gallery",
+                navContact: "Contact",
+                teamInfo: "A project by Du Lịch Trẻ Team - Mùa Hè Xanh 2025, Open University HCMC. Showcasing the beauty of Saigon and guiding tourists with passion!",
+                heroTitle: "Bach Dang Wharf",
+                heroSubtitle: "A serene corner of Saigon by the poetic river",
+                aboutTitle: "About Bach Dang Wharf",
+                aboutText: "Bach Dang Wharf, a peaceful corner of Saigon by the poetic river, where the past and present blend in every breath. Once a bustling port during the French colonial era, it now boasts modern beauty with lush parks, spacious walkways, sunset cruises, and poetic riverside cafes. Near Nguyen Hue Walking Street, the Tran Hung Dao statue, and the Majestic Hotel, Bach Dang Wharf is not only a place for relaxation but also a living memory of a Saigon vibrant with trade and imbued with the historic spirit of Bach Dang. Visit in the late afternoon or when the city lights up, and you’ll feel your heart soften, falling in love with a truly cherished Saigon.",
+                galleryTitle: "Gallery",
+                mapTitle: "Location Map",
+                contactTitle: "Plan Your Visit",
+                contactText: "Ready to explore Bach Dang Wharf? Learn more about our team and get in touch!",
+                footerText: "A project by Young Travel Team - Green Summer 2025"
+            },
+            vi: {
+                navTitle: "Bến Bạch Đằng",
+                navHome: "Quay Về Trang Chủ",
+                navAbout: "Về Bến Bạch Đằng",
+                navGallery: "Thư Viện Hình Ảnh",
+                navContact: "Liên Hệ",
+                teamInfo: "Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025, Đại học Mở TP.HCM. Giới thiệu vẻ đẹp Sài Gòn và hướng dẫn du khách với đam mê!",
+                heroTitle: "Bến Bạch Đằng",
+                heroSubtitle: "Một góc Sài Gòn bình yên bên dòng sông thơ mộng",
+                aboutTitle: "Về Bến Bạch Đằng",
+                aboutText: "Bến Bạch Đằng – một góc Sài Gòn bình yên bên dòng sông thơ mộng, nơi quá khứ và hiện tại giao hòa trong từng hơi thở. Từng là bến cảng nhộn nhịp từ thời Pháp thuộc, nơi đây giờ khoác lên vẻ đẹp hiện đại với công viên xanh mát, lối đi bộ thoáng đãng, du thuyền ngắm hoàng hôn và những quán cà phê view sông đầy thi vị. Gần kề phố đi bộ Nguyễn Huệ, tượng Trần Hưng Đạo và khách sạn Majestic, Bến Bạch Đằng không chỉ là điểm hẹn thư giãn mà còn là ký ức sống động của một Sài Gòn từng rực rỡ giao thương và mang trong mình hào khí Bạch Đằng lịch sử. Đến đây lúc chiều muộn hay khi thành phố lên đèn, bạn sẽ thấy lòng mình dịu lại, yêu hơn một Sài Gòn rất đỗi thân thương.",
+                galleryTitle: "Thư Viện Hình Ảnh",
+                mapTitle: "Bản Đồ Vị Trí",
+                contactTitle: "Lên Kế Hoạch Thăm Quan",
+                contactText: "Sẵn sàng khám phá Bến Bạch Đằng? Tìm hiểu thêm về đội ngũ của chúng tôi và liên hệ!",
+                footerText: "Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025"
+            },
+            zh: {
+                navTitle: "白藤码头",
+                navHome: "返回首页",
+                navAbout: "关于白藤码头",
+                navGallery: "图片库",
+                navContact: "联系",
+                teamInfo: "由Du Lịch Trẻ团队 - 2025年绿色暑期，胡志明市开放大学项目。展示西贡之美并热情指导游客！",
+                heroTitle: "白藤码头",
+                heroSubtitle: "西贡河边的一个宁静角落",
+                aboutTitle: "关于白藤码头",
+                aboutText: "白藤码头是西贡河边的一个宁静角落，过去与现在在每一呼吸中交融。曾经是法国殖民时期繁忙的港口，如今它以现代化的美丽面貌示人，拥有郁郁葱葱的公园、宽敞的步道、夕阳游船和充满诗意的河边咖啡馆。靠近阮惠步行街、Tran Hung Dao雕像和Majestic酒店，白藤码头不仅是放松的场所，也是西贡曾经繁荣贸易并充满历史白藤精神的生动记忆。在黄昏或城市灯火通明时到访，你会感到内心柔软，更加爱上这个令人珍爱的西贡。",
+                galleryTitle: "画廊",
+                mapTitle: "位置地图",
+                contactTitle: "计划您的访问",
+                contactText: "准备好探索白藤码头了吗？了解更多关于我们团队的信息并联系我们！",
+                footerText: "由Young Travel团队 - 2025年绿色暑期项目"
+            }
+        };
+
+        // Initialize language
+        let currentLang = localStorage.getItem('language') || 'vi';
+
+        // Update content based on language
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+
+            document.querySelector('.nav-title').textContent = translations[lang].navTitle;
+            document.getElementById('navHome').textContent = translations[lang].navHome;
+            document.getElementById('navAbout').textContent = translations[lang].navAbout;
+            document.getElementById('navGallery').textContent = translations[lang].navGallery;
+            document.getElementById('navContact').textContent = translations[lang].navContact;
+            document.getElementById('teamInfo').textContent = translations[lang].teamInfo;
+            document.getElementById('heroTitle').textContent = translations[lang].heroTitle;
+            document.getElementById('heroSubtitle').textContent = translations[lang].heroSubtitle;
+            document.getElementById('aboutTitle').textContent = translations[lang].aboutTitle;
+            document.getElementById('aboutText').textContent = translations[lang].aboutText;
+            document.getElementById('galleryTitle').textContent = translations[lang].galleryTitle;
+            document.getElementById('mapTitle').textContent = translations[lang].mapTitle;
+            document.getElementById('contactTitle').textContent = translations[lang].contactTitle;
+            document.getElementById('contactText').textContent = translations[lang].contactText;
+            document.getElementById('footerText').textContent = translations[lang].footerText;
+
+            const langSwitch = document.getElementById('langSwitch');
+            langSwitch.value = lang;
+        }
+
+        // Event listener for language switch
+        document.getElementById('langSwitch').addEventListener('change', function() {
+            updateLanguage(this.value);
+        });
+
+        // Load language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage(currentLang);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Check if map loads, show fallback if it fails
+        window.addEventListener('load', function() {
+            const mapFrame = document.getElementById('mapFrame');
+            const mapFallback = document.getElementById('mapFallback');
+            if (mapFrame && mapFrame.contentDocument && mapFrame.contentDocument.body.innerHTML.includes('Google')) {
+                // Map loaded successfully
+            } else {
+                mapFallback.classList.remove('hidden');
+            }
+        });
+
+        // Add user's current location if permitted
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        const mapFrame = document.getElementById('mapFrame');
+                        if (mapFrame) {
+                            mapFrame.src += '&markers=color:blue%7Clabel:Y%7C' + userLat + ',' + userLng;
+                        }
+                    },
+                    () => {
+                        console.log('Geolocation permission denied or unavailable.');
+                    }
+                );
+            }
+        }
+        window.onload = initMap;
+    </script>
+</body>
+</html>

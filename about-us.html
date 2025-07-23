@@ -37,6 +37,16 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             transition: color 0.3s ease;
         }
+            .footer-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem; /* Khoảng cách giữa hai logo */
+            padding: 0.5rem;
+            background-color: #d8cfcf; /* Khung trắng */
+            border-radius: 0.75rem; /* Bo tròn 4 góc */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để nổi bật */
+            }
         .nav-link:hover {
             color: #facc15;
             text-decoration: underline;
@@ -98,7 +108,7 @@
 
     <!-- Hero Section -->
     <section id="about" class="h-screen flex items-center justify-center text-white bg-cover bg-center" 
-        style="background-image: url('images/\(3\).jpg'); background-attachment: fixed;">
+        style="background-image: url('images/TapHuan/\(3\).jpg'); background-attachment: fixed;">
         <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg">
             <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">About Us</h2>
             <p class="text-xl drop-shadow" id="heroSubtitle">Meet the passionate team behind Du Lịch Trẻ</p>
@@ -117,17 +127,35 @@
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-20">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="galleryTitle">Our Journey in Pictures</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/(2).jpg" alt="Team Photo 1" class="w-full h-48 object-cover">
+                    <img src="images/TapHuan/(2).jpg" alt="Team Photo 1" class="w-full h-48 object-cover">
                 </div>
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/(11).jpg" alt="Team Photo 2" class="w-full h-48 object-cover">
+                    <img src="images/TapHuan/(3).jpg" alt="Team Photo 2" class="w-full h-48 object-cover">
                 </div>
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/(4).jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                    <img src="images/TapHuan/(4).jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/20.jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/21.jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/22.jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/23.jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/(9).jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/TapHuan/(10).jpg" alt="Team Photo 3" class="w-full h-48 object-cover">
                 </div>
             </div>
         </div>
@@ -142,7 +170,7 @@
             </p>
             <div class="text-center">
                 <div class="flex justify-center space-x-4">
-                    <a href="https://facebook.com/dulichtre" target="_blank" class="text-blue-600 hover:text-blue-800">Facebook</a>
+                    <a href="https://www.facebook.com/profile.php?id=61577329166998&locale=vi_VN">Facebook</a>
                     <a href="https://zalo.me/dulichtre" target="_blank" class="text-green-600 hover:text-green-800">Zalo</a>
                     <a href="https://tiktok.com/@dulichtre" target="_blank" class="text-black hover:text-gray-800">TikTok</a>
                 </div>
@@ -150,19 +178,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+ <!-- Footer -->
+    <footer class="bg-gray-700 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <img src="https://media.loveitopcdn.com/3807/logo-hoi-sinh-vien-dongphucsongphu.jpg" alt="Hội Sinh viên Việt Nam Logo" class="footer-logo">
-                <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-mo-tphcm-inkythuatso-01-23-15-09-49.jpg" alt="Open University HCMC Logo" class="footer-logo">
+            <div class="footer-logo-container mb-4">
+                <img src="images/Logo/DAYLOGOMHX25 (1).png" alt="35 năm ngày thành lập trường Đại học Mở Thành phố Hồ Chí Minh" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=Logo+Not+Found';">
+                <img src="images/Logo/logxoanen.png" alt="Logo mới của Du Lịch Trẻ" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=New+Logo';">
             </div>
-            <p class="footer-text mt-2" id="footerText">A project by Young Travel Team - Green Summer 2025</p>
+            <p class="footer-text mt-2" id="footerText">Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025</p>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="index.html" class="footer-text hover:text-yellow-300">Home</a>
-                <a href="#about" class="footer-text hover:text-yellow-300">About</a>
-                <a href="#gallery" class="footer-text hover:text-yellow-300">Gallery</a>
-                <a href="#contact" class="footer-text hover:text-yellow-300">Contact</a>
+                <a href="#home" class="footer-text hover:text-yellow-300">Trang Chủ</a>
+                <a href="#destinations" class="footer-text hover:text-yellow-300">Điểm Đến</a>
+                <a href="#contact" class="footer-text hover:text-yellow-300">Liên Hệ</a>
             </div>
         </div>
     </footer>

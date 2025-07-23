@@ -6,6 +6,7 @@
     <title>Independence Palace</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* General Styles */
         .destination-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -26,6 +27,17 @@
             color: #ffffff;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             font-size: 1.5rem;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem; /* Khoảng cách giữa hai logo */
+            padding: 0.5rem;
+            background-color: #d8cfcf; /* Khung trắng */
+            border-radius: 0.75rem; /* Bo tròn 4 góc */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ để nổi bật */
         }
         .nav-link {
             color: #ffffff;
@@ -65,6 +77,99 @@
         .lang-switch:hover {
             background-color: #2dd4bf;
         }
+
+        /* Media Queries for Responsive Design */
+        @media only screen and (max-width: 640px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to right, #8b5cf6, #34d399);
+                flex-direction: column;
+                padding: 1rem;
+                z-index: 20;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+                color: #ffffff;
+                cursor: pointer;
+            }
+            .nav-title {
+                font-size: 1.2rem;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.5rem 0;
+            }
+            .hero-section {
+                height: 50vh;
+            }
+            .hero-content {
+                padding: 1rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-iframe {
+                height: 150px;
+            }
+            .contact-content {
+                padding: 1rem;
+            }
+            .footer-logo {
+                height: 30px;
+                margin: 0 0.5rem;
+            }
+            .footer-text {
+                font-size: 0.75rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 30;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: #ffffff;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -72,7 +177,10 @@
     <nav class="nav-container fixed w-full top-0 z-10 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="nav-title">Independence Palace</h1>
-            <ul class="flex space-x-6 text-lg">
+            <div class="md:hidden">
+                <span class="hamburger" onclick="toggleMenu()">☰</span>
+            </div>
+            <ul class="flex space-x-6 text-lg nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link" id="navHome">Back to Home</a></li>
                 <li><a href="#about" class="nav-link" id="navAbout">About</a></li>
                 <li><a href="#gallery" class="nav-link" id="navGallery">Gallery</a></li>
@@ -94,11 +202,11 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="about" class="h-screen flex items-center justify-center text-white bg-cover bg-center" 
+    <section id="about" class="h-screen flex items-center justify-center text-white bg-cover bg-center hero-section" 
         style="background-image: url('https://iwater.vn/Image/Picture/New/Dinh%20%C4%90%E1%BB%99c%20L%E1%BA%ADp.JPG'); background-attachment: fixed;">
-        <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg">
-            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg" id="heroTitle">Independence Palace</h2>
-            <p class="text-xl drop-shadow" id="heroSubtitle">A historic landmark of Vietnam’s modern history</p>
+        <div class="text-center bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-lg hero-content">
+            <h2 class="text-5xl font-bold mb-4 drop-shadow-lg hero-title" id="heroTitle">Independence Palace</h2>
+            <p class="text-xl drop-shadow hero-subtitle" id="heroSubtitle">A historic landmark of Vietnam’s modern history</p>
         </div>
     </section>
 
@@ -116,15 +224,15 @@
     <section id="gallery" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="galleryTitle">Gallery</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 gallery-grid">
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/palace-photo-1.jpg" alt="Palace Photo 1" class="w-full h-48 object-cover">
+                    <img src="images/DinhDL/dinhdl1.jpg" alt="Palace Photo 1" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox('images/dinhdl1.jpg')">
                 </div>
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/palace-photo-2.jpg" alt="Palace Photo 2" class="w-full h-48 object-cover">
+                    <img src="images/DinhDL/dinhdl2.jpg" alt="Palace Photo 2" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox('images/dinhdl2.jpg')">
                 </div>
                 <div class="destination-card bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                    <img src="images/palace-photo-3.jpg" alt="Palace Photo 3" class="w-full h-48 object-cover">
+                    <img src="images/DinhDL/dinhdl3.jpg" alt="Palace Photo 3" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox('images/dinhdl3.jpg')">
                 </div>
             </div>
         </div>
@@ -135,7 +243,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" id="mapTitle">Location Map</h2>
             <div class="bg-white p-4 rounded-lg shadow-md">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.589254112974!2d106.6949998!3d10.7794999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sIndependence+Palace!5e0!3m2!1sen!2sus!4v1698765432!&markers=color:red%7Clabel:D%7C10.7794999,106.6949998" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" id="mapFrame"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.589254112974!2d106.6949998!3d10.7794999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sIndependence+Palace!5e0!3m2!1sen!2sus!4v1698765432!&markers=color:red%7Clabel:D%7C10.7794999,106.6949998" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" class="map-iframe" id="mapFrame"></iframe>
                 <div id="mapFallback" class="text-center text-gray-600 mt-2 hidden">Map failed to load. Please check your internet connection or try again later.</div>
                 <a href="https://www.google.com/maps/place/135+Nam+Kỳ+Khởi+Nghĩa,+Bến+Nghé,+Quận+1,+Hồ+Chí+Minh,+Vietnam" target="_blank" class="mt-2 inline-block text-teal-500 hover:text-teal-600 underline">View Full Map & Directions</a>
             </div>
@@ -144,7 +252,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 contact-content">
             <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" id="contactTitle">Plan Your Visit</h2>
             <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6" id="contactText">
                 Ready to explore Independence Palace? Learn more about our team and get in touch!
@@ -160,24 +268,29 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+     <!-- Footer -->
+    <footer class="bg-gray-700 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <img src="https://media.loveitopcdn.com/3807/logo-hoi-sinh-vien-dongphucsongphu.jpg" alt="Hội Sinh viên Việt Nam Logo" class="footer-logo">
-                <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-mo-tphcm-inkythuatso-01-23-15-09-49.jpg" alt="Open University HCMC Logo" class="footer-logo">
+            <div class="footer-logo-container mb-4">
+                <img src="images/Logo/DAYLOGOMHX25 (1).png" alt="35 năm ngày thành lập trường Đại học Mở Thành phố Hồ Chí Minh" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=Logo+Not+Found';">
+                <img src="images/Logo/logxoanen.png" alt="Logo mới của Du Lịch Trẻ" class="footer-logo" onerror="this.src='https://via.placeholder.com/40?text=New+Logo';">
             </div>
-            <p class="footer-text mt-2" id="footerText">A project by Young Travel Team - Green Summer 2025</p>
+            <p class="footer-text mt-2" id="footerText">Dự án bởi Đội Du Lịch Trẻ - Mùa Hè Xanh 2025</p>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="index.html" class="footer-text hover:text-yellow-300">Home</a>
-                <a href="#about" class="footer-text hover:text-yellow-300">About</a>
-                <a href="#gallery" class="footer-text hover:text-yellow-300">Gallery</a>
-                <a href="#contact" class="footer-text hover:text-yellow-300">Contact</a>
+                <a href="#home" class="footer-text hover:text-yellow-300">Trang Chủ</a>
+                <a href="#destinations" class="footer-text hover:text-yellow-300">Điểm Đến</a>
+                <a href="#contact" class="footer-text hover:text-yellow-300">Liên Hệ</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for smooth scrolling, language switch, and map fallback -->
+    <!-- Lightbox Container -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">×</span>
+        <img src="" alt="Enlarged Image" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <!-- JavaScript for smooth scrolling, language switch, map fallback, menu toggle, and lightbox -->
     <script>
         // Language data
         const translations = {
@@ -312,6 +425,32 @@
             }
         }
         window.onload = initMap;
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Lightbox functions
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
